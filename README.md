@@ -74,16 +74,16 @@ This project documents the deployment and testing of a Wazuh SIEM solution in a 
 - **Firewall**: pfSense
 
 **SIEM Server Hardware Configuration**
-<img width="1528" height="203" alt="image" src="https://github.com/user-attachments/assets/28d43ffa-b337-4d8f-b1ef-40a3736974a0" />
+<img width="1013" height="138" alt="image" src="https://github.com/user-attachments/assets/ccf3028d-abb1-4308-ba1d-005925611c33" />
 
 **Kali Linux Hardware Configuration**
-<img width="1526" height="231" alt="image" src="https://github.com/user-attachments/assets/65b7a985-fdd3-4924-be9b-1127ca037802" />
+<img width="1016" height="154" alt="image" src="https://github.com/user-attachments/assets/e28c7249-bef3-4317-bb95-557de4aabe84" />
 
 **Windows Hardware Configuration**
-<img width="1528" height="300" alt="image" src="https://github.com/user-attachments/assets/3c71e87b-33b0-489a-ab56-dd5f579c56c5" />
+<img width="1012" height="200" alt="image" src="https://github.com/user-attachments/assets/52b17849-cee9-4e5d-bcb9-8c39ce46b45a" />
 
 **pfSense Hardware Configuration**
-<img width="792" height="272" alt="image" src="https://github.com/user-attachments/assets/ccbecc92-bd44-49ad-bb3a-021125093c89" />
+<img width="793" height="275" alt="image" src="https://github.com/user-attachments/assets/07d18a2d-bac1-49ea-89f7-b783200949b1" />
 
 
 ## 📥 Environment Configuration
@@ -100,7 +100,7 @@ This project documents the deployment and testing of a Wazuh SIEM solution in a 
 - Agent communication configured on port 1514/TCP
 - Self-signed certificates used (lab environment)
 
-<img width="1868" height="928" alt="image" src="https://github.com/user-attachments/assets/a6640041-b7c4-4ed7-bf5e-79829e4144ad" />
+<img width="1012" height="501" alt="image" src="https://github.com/user-attachments/assets/968f49ac-617c-466b-8412-69f48c031d13" />
 
 ### Network Configuration & Gateway (pfSense)
 
@@ -119,7 +119,7 @@ The pfSense instance is configured with multiple virtual NICs mapped to Proxmox 
     OPT1 (vmbr2): The "Attacker" zone hosting the Kali Linux VM. This zone is logically isolated to prevent lateral movement outside of the lab.
 
 
-<img width="1311" height="703" alt="image" src="https://github.com/user-attachments/assets/dc35743b-7024-4496-b1a2-b69292dde87e" />
+<img width="1009" height="542" alt="image" src="https://github.com/user-attachments/assets/d2b92c37-c491-44d1-8558-c42842ca0be2" />
 
 
 2. **Firewall Security Logic**
@@ -129,19 +129,19 @@ Traffic flow is controlled by strict firewall rules to simulate a corporate envi
     ICMP Monitoring: Explicitly enabled logging on all Ping/ICMP rules. This allows for the detection of network discovery and reconnaissance in the Wazuh dashboard.
 
 
-<img width="1312" height="709" alt="image" src="https://github.com/user-attachments/assets/2624c63d-1368-42f0-9fac-d648154d6563" />
+<img width="1014" height="549" alt="image" src="https://github.com/user-attachments/assets/d6baed85-a949-46bf-aaac-4aea7a5629f1" />
 
 
     Identity Services: Rules allow only specific ports (LDAP: 389, Kerberos: 88, DNS: 53) between the Workstation and the Domain Controller.
 
     
-<img width="1312" height="707" alt="image" src="https://github.com/user-attachments/assets/12210afb-eca1-458d-a80e-b06c689ecc7d" />
+<img width="1015" height="545" alt="image" src="https://github.com/user-attachments/assets/aae68c86-b9a3-4e5f-bfdd-f769784e2b08" />
     
    
     Attack Isolation: A "Block All" rule is enforced on the Attacker interface to prevent Kali from accessing the management network or the physical Proxmox host.
 
 
-<img width="1311" height="703" alt="image" src="https://github.com/user-attachments/assets/fe25190f-3ce0-4c1b-b235-5f90f90f64b3" />
+<img width="1009" height="538" alt="image" src="https://github.com/user-attachments/assets/a342a3ab-c6d2-4cd5-9462-94e307fda3f5" />
 
 
 3. **SIEM Log Integration (Syslog)**
@@ -155,7 +155,7 @@ pfSense is configured to forward network-layer telemetry to the Wazuh Manager vi
     NAT translation tables.
 
 
-<img width="1292" height="692" alt="image" src="https://github.com/user-attachments/assets/cebf98a5-ac37-4aa3-8e4f-bbdde5af5332" />
+<img width="1011" height="540" alt="image" src="https://github.com/user-attachments/assets/4c21e8b2-0186-41c0-b63e-09faa7218a98" />
 
 
 4. **Wazuh Manager Configuration (ossec.conf)**
@@ -197,8 +197,8 @@ pfSense is configured to forward network-layer telemetry to the Wazuh Manager vi
    - Remote admin share access enabled (LocalAccountTokenFilterPolicy)
    - Windows Defender temporarily disabled for testing
 
-<img width="1868" height="918" alt="image" src="https://github.com/user-attachments/assets/bcc6b463-4971-484b-8e16-94a673895a35" />
-<img width="1196" height="745" alt="image" src="https://github.com/user-attachments/assets/4968cb84-35c8-47ab-98b8-bda4465c40aa" />
+<img width="1010" height="497" alt="image" src="https://github.com/user-attachments/assets/a031259d-e40d-4714-ac81-755c8bb02ce9" />
+<img width="1011" height="631" alt="image" src="https://github.com/user-attachments/assets/22557e2a-19e7-4f2b-ad9b-b0743c961474" />
 
 ### Kali Linux Attack Platform
 
@@ -254,9 +254,9 @@ hydra -l Administrator -P passwords.txt rdp://192.168.1.199 -t 1
 - ✅ Source IP correctly identified in alerts
 - Detection rate: 100%
 
-<img width="1361" height="746" alt="image" src="https://github.com/user-attachments/assets/3cb2125a-603b-4476-9dba-972ae9017c04" />
-<img width="1526" height="815" alt="image" src="https://github.com/user-attachments/assets/0ae34575-56f0-4de7-8a56-f0b6a2f862c2" />
-<img width="1527" height="873" alt="image" src="https://github.com/user-attachments/assets/5f9ed000-aced-48e5-8b2c-3c8b5174042a" />
+<img width="1009" height="558" alt="image" src="https://github.com/user-attachments/assets/8956bc13-b683-44cd-a464-c249275328d8" />
+<img width="1011" height="540" alt="image" src="https://github.com/user-attachments/assets/f70b5c77-866d-40b4-9b75-f87028359898" />
+<img width="1014" height="576" alt="image" src="https://github.com/user-attachments/assets/685c40a2-605a-4b3d-996e-4df85de2c3b4" />
 
 **Challenge Encountered**: 
 - Account lockout policy triggered after default threshold (5 attempts)
@@ -283,9 +283,10 @@ powershell -ExecutionPolicy Bypass -Command "Get-Process"
 - ✅ Encoded command execution flagged
 - Detection rate: 100%
 
-<img width="1520" height="746" alt="image" src="https://github.com/user-attachments/assets/539f1ed4-9c54-4705-a3bb-502f1844a02c" />
-<img width="1869" height="921" alt="image" src="https://github.com/user-attachments/assets/27e97b71-1183-470d-b547-51cd39b14f18" />
-<img width="1520" height="744" alt="image" src="https://github.com/user-attachments/assets/cb7c33f0-d624-49a5-9158-2548a1127d24" />
+<img width="796" height="497" alt="image" src="https://github.com/user-attachments/assets/fb39ddd3-b823-4e11-950b-d4feb5b19943" />
+<img width="1016" height="499" alt="image" src="https://github.com/user-attachments/assets/4671c606-f6d1-404e-99fe-f0077089f72d" />
+<img width="797" height="493" alt="image" src="https://github.com/user-attachments/assets/96eeda14-dda8-489b-bdd7-eb399be8e650" />
+
 
 **Key Finding**: PowerShell logging is critical. Without Script Block Logging enabled, command content would be invisible to SIEM.
 
@@ -308,8 +309,8 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v Malware /t REG_S
 - ✅ Value name and data captured in logs
 - Detection rate: High
 
-<img width="1523" height="744" alt="image" src="https://github.com/user-attachments/assets/6890d0ac-346c-4188-b8d1-481b360380b2" />
-<img width="1868" height="866" alt="image" src="https://github.com/user-attachments/assets/7479a19f-5e86-459a-999b-c38c248f24ed" />
+<img width="794" height="498" alt="image" src="https://github.com/user-attachments/assets/01ec3131-528b-40d0-a046-e3c11ca89943" />
+<img width="1011" height="470" alt="image" src="https://github.com/user-attachments/assets/c5f07f13-d570-4676-9e19-e7c260246242" />
 
 
 ## 🧠 Technical Challenges & Solutions
